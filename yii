@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Yii console bootstrap file.
+ */
+
+// Define our application_env variable as provided by nginx/apache
+if (!defined('APPLICATION_ENV'))
+{
+    if (getenv('APPLICATION_ENV') != false)
+        define('APPLICATION_ENV', getenv('APPLICATION_ENV'));
+    else 
+       define('APPLICATION_ENV', 'prod');
+}
+
+$env = require(__DIR__ . '/../config/env.php');
+
+defined('YII_DEBUG') or define('YII_DEBUG', $env['debug']);
+
+// fcgi doesn't have STDIN and STDOUT defined by default
+defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
+defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
+
+require(__DIR__ . '/vendor/autoload.php');
+require(__DIR__ . '/vendor/yiisoft/yii2/Yii.php');
+
+$config = require(__DIR__ . '/config/console.php');
+
+$application = new yii\console\Application($config);
+$exitCode = $application->run();
+exit($exitCode);
