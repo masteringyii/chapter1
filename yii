@@ -13,7 +13,7 @@ if (!defined('APPLICATION_ENV'))
        define('APPLICATION_ENV', 'prod');
 }
 
-$env = require(__DIR__ . '/../config/env.php');
+$env = require(__DIR__ . '/config/env.php');
 
 defined('YII_DEBUG') or define('YII_DEBUG', $env['debug']);
 
