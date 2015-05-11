@@ -1,7 +1,7 @@
 ## Mastering Yii Chapter 1 Source Code
 
 The following source code is the project for Chapter 1 of Mastering Yii
-ISBN-CH: 978-1-78588-252-5_01
+ISBN-CH: 978-1-78588-242-5_01
 
 ### Requirements
 
